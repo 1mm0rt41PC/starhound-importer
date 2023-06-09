@@ -13,6 +13,24 @@ Import data from SharpHound and AzureHound using CLI instead of GUI [BloodHound]
 
 Now, you should have new file in `bin/main.js` you can use.
 
+# Run via Docker
+```bash
+git clone https://github.com/1mm0rt41PC/starhound-importer && cd starhound-importer
+docker build -t starhound-importer .
+# ls ./data
+## 20230522170904_earth-lo_rusthound/20230522170904_cas.json
+## 20230522170904_earth-lo_rusthound/20230522170904_domains.json
+## 20230522170904_earth-lo_rusthound/20230522170904_users.json
+## 20230522170904_earth-lo_rusthound/20230522170904_groups.json
+## 20230522170904_earth-lo_rusthound/20230522170904_computers.json
+## 20230522170904_earth-lo_rusthound/20230522170904_containers.json
+## 20230522170904_earth-lo_rusthound/20230522170904_ous.json
+## 20230522170904_earth-lo_rusthound/20230522170904_gpos.json
+## 20230522170904_earth-lo_rusthound/20230522170904_templates.json
+
+docker run --rm -it --network=host -v ./data:/data -e NEOUSER=neo4j -e NEOPWD=myPassw0rd -e "NEOURL=bolt://127.0.0.1:7687/" starhound-importer
+```
+
 # Run
 Importing is a little silly with this tool and it's 4-step process. You could skip some steps or run them multiple times but for fastest import, I recommend following this:
 
