@@ -6,4 +6,4 @@ RUN git clone --recurse-submodules -j8 https://github.com/malacupa/starhound-imp
 WORKDIR /code/starhound-importer
 RUN npm install --save-dev
 RUN npm run build
-CMD sh -c "node bin/main.js preprocess; find /data/ -name '*.json' -exec node bin/main.js {} \; node bin/main.js postprocess;"
+CMD sh -c "node bin/main.js preprocess; cd /data; find /data/ -name '*.zip' -exec unzip {} \; cd /code/starhound-importer; find /data/ -name '*.json' -exec node bin/main.js {} \; node bin/main.js postprocess;"
