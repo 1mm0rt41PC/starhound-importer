@@ -5,7 +5,7 @@ Import data from SharpHound and AzureHound using CLI instead of GUI [BloodHound]
 
 # Install
 
- 1. Clone the repository including it's submodule: `git clone --recurse-submodules -j8 https://github.com/malacupa/starhound-importer`
+ 1. Clone the repository including it's submodule: `git clone --recurse-submodules -j8 https://github.com/1mm0rt41PC/starhound-importer`
  2. Make sure you have your neo4j installed
  3. Install Node.js version 16. I recommend installing and managing Node.js using [nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
  4. Run `npm install --save-dev` to install all dependencies
@@ -15,7 +15,7 @@ Now, you should have new file in `bin/main.js` you can use.
 
 # Run via Docker
 ```bash
-git clone https://github.com/1mm0rt41PC/starhound-importer && cd starhound-importer
+git clone --recurse-submodules -j8 https://github.com/1mm0rt41PC/starhound-importer && cd starhound-importer
 docker build -t starhound-importer .
 # ls ./data
 ## 20230522170904_earth-lo_rusthound/20230522170904_cas.json
