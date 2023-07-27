@@ -6,4 +6,4 @@ WORKDIR /code/starhound-importer
 RUN ([ -n "$https_proxy" ] && npm config set strict-ssl false) && \
     npm install --save-dev && \
     npm run build
-CMD sh -c "node /code/starhound-importer/bin/main.js preprocess; cd /data; find /data/ -name '*.zip' -exec unzip {} \;; cd /code/starhound-importer; find /data/ -name '*.json' -exec node /code/starhound-importer/bin/main.js {} \;; node /code/starhound-importer/bin/main.js postprocess;"
+CMD sh -c "node /code/starhound-importer/bin/main.js preprocess; cd /data; find /data/ -name '*.zip' -exec unzip -o {} \;; cd /code/starhound-importer; find /data/ -name '*.json' -exec node /code/starhound-importer/bin/main.js {} \;; node /code/starhound-importer/bin/main.js postprocess;"
