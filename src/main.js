@@ -66,6 +66,8 @@ const IngestFuncMap = {
     gpos: NewIngestion.buildGpoJsonNew,
     containers: NewIngestion.buildContainerJsonNew,
     azure: NewIngestion.convertAzureData,
+    cas: NewIngestion.buildCaJsonNew,
+    templates: NewIngestion.buildTemplateJsonNew,
 };
 
 const uploadData = async (statement, props) => {
