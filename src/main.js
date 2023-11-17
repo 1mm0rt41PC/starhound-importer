@@ -74,6 +74,7 @@ const uploadData = async (statement, props) => {
     let session = driver.session();
     await session.run(statement, { props: props }).catch((err) => {
         console.log(statement);
+        console.log(props);
         console.log(err);
     });
     await session.close();
@@ -239,6 +240,7 @@ const processJson = async (file) => {
                 }
             } else {
                 for (let key in processedData) {
+                    console.log('Working on '+key);
                     let props = processedData[key].props;
                     if (props.length === 0) continue;
                     let chunked = props.chunk();
@@ -868,6 +870,8 @@ const executePostProcessSteps = async (steps, session) => {
         readline.clearLine(process.stdout);
         readline.cursorTo(process.stdout, 0);
     } else {
+        console.log("Unknown args:");
+        console.log(process.argv);
         console.log("Usage: node bin/app.js <preprocess|postprocess|BloodHound/AzureHound JSON file>");
         process.exit(0);
     }
